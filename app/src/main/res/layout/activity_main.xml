@@ -103,7 +103,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:id="@+id/button_first"
-        android:background="@color/design_default_color_background"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         />
 
     <Button
@@ -114,7 +114,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:id="@+id/button_second"
-        android:background="@color/design_default_color_background"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         />
 
     <EditText
