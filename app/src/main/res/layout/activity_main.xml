@@ -129,4 +129,13 @@
         android:hint="Name"
         />
 
+    <ImageView
+        android:layout_width="57dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/editTextName"
+        android:layout_alignBottom="@+id/editTextName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-58dp"
+        android:src="@drawable/ic_baseline_airplanemode_active_24" />
 </RelativeLayout>
