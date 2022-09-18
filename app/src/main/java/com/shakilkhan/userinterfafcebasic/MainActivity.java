@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioGroup radioGroupMaritalStatus;
     private ProgressBar prgeressBar;
     private ListView citiesList;
+    private Spinner studentSpinner;
 
 
     @Override
@@ -52,6 +54,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //        start code here.........
+
+        studentSpinner = findViewById(R.id.studentSpinner);
+        ArrayList<String> student = new ArrayList<>();
+        student.add("shakil khan");
+        student.add("Khalid Hossain");
+        student.add("Tanvir Hossain");
+        student.add("Siam Khan");
+
+        ArrayAdapter<String> studentAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                student
+        );
+        studentSpinner.setAdapter(studentAdapter);
+
+        studentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, student.get(i) + " selected", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         citiesList = findViewById(R.id.listView);
 
