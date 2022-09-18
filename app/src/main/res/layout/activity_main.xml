@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/MovieLayout"
+        >
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harry Poter"
+            android:checked="true"
+            android:id="@+id/checkboxHarryPoter"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jocker"
+            android:checked="true"
+            android:id="@+id/checkboxJocker"
+
+            android:layout_toRightOf="@+id/checkboxHarryPoter"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Matrix"
+            android:checked="true"
+            android:id="@+id/checkboxTheMatrix"
+            android:layout_toRightOf="@+id/checkboxJocker"
+            />
+    </RelativeLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/MovieLayout"
+        android:layout_centerInParent="true"
+        android:id="@+id/radioGroupMaritalStatus"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marrid"
+            android:checked="true"
+            android:id="@+id/radioBtnMarrid"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single"
+            android:checked="true"
+            android:id="@+id/radioBtnSingle"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In a relationship"
+            android:checked="true"
+            android:id="@+id/radioBtnRelationship"
+            />
+
+    </RadioGroup>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="250dp"
+        android:id="@+id/progress_horizontal"
+        android:visibility="visible"
+        android:max="100"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World"
+        android:layout_centerInParent="true"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="#54d"
+        android:textSize="20dp"
+        android:id="@+id/helloText"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_below="@+id/helloText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:id="@+id/button_first"
+        android:background="@color/design_default_color_background"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="second btn"
+        android:layout_below="@+id/button_first"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:id="@+id/button_second"
+        android:background="@color/design_default_color_background"
+        />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="285dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        />
+
+</RelativeLayout>
