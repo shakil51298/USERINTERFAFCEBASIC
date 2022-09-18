@@ -2,122 +2,117 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Context_View"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/Context_View"
-    >
+    tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
         android:id="@+id/MovieLayout"
-        >
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Harry Poter"
-            android:checked="true"
-            android:id="@+id/checkboxHarryPoter"
-            />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jocker"
-            android:checked="true"
-            android:id="@+id/checkboxJocker"
-
-            android:layout_toRightOf="@+id/checkboxHarryPoter"
-            />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="The Matrix"
-            android:checked="true"
-            android:id="@+id/checkboxTheMatrix"
-            android:layout_toRightOf="@+id/checkboxJocker"
-            />
-    </RelativeLayout>
-    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <CheckBox
+            android:id="@+id/checkboxHarryPoter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Harry Poter" />
+
+        <CheckBox
+            android:id="@+id/checkboxJocker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/checkboxHarryPoter"
+            android:checked="true"
+
+            android:text="Jocker" />
+
+        <CheckBox
+            android:id="@+id/checkboxTheMatrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/checkboxJocker"
+            android:checked="true"
+            android:text="The Matrix" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroupMaritalStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/MovieLayout"
         android:layout_centerInParent="true"
-        android:id="@+id/radioGroupMaritalStatus"
-        >
+        android:orientation="horizontal">
+
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Marrid"
-            android:checked="true"
             android:id="@+id/radioBtnMarrid"
-            />
-
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Single"
             android:checked="true"
+            android:text="Marrid" />
+
+        <RadioButton
             android:id="@+id/radioBtnSingle"
-            />
-
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="In a relationship"
             android:checked="true"
+            android:text="Single" />
+
+        <RadioButton
             android:id="@+id/radioBtnRelationship"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="In a relationship" />
 
     </RadioGroup>
+
     <ProgressBar
+        android:id="@+id/progress_horizontal"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="250dp"
-        android:id="@+id/progress_horizontal"
-        android:visibility="visible"
+        android:layout_marginRight="10dp"
         android:max="100"
-        />
+        android:visibility="visible" />
 
     <TextView
+        android:id="@+id/helloText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="200dp"
         android:fontFamily="sans-serif-smallcaps"
+        android:text="Hello World"
         android:textColor="#54d"
-        android:textSize="20dp"
-        android:id="@+id/helloText"
-        />
+        android:textSize="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_below="@+id/helloText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
         android:id="@+id/button_first"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="second btn"
-        android:layout_below="@+id/button_first"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/helloText"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="200dp"
         android:layout_marginTop="15dp"
+        android:text="Button" />
+
+    <Button
         android:id="@+id/button_second"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_first"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="15dp"
+        android:text="second btn" />
 
     <EditText
         android:id="@+id/editTextName"
@@ -127,9 +122,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="285dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Name"
-        />
+        android:inputType="textPersonName" />
 
     <ImageView
         android:layout_width="57dp"
@@ -142,46 +136,75 @@
         android:src="@drawable/ic_baseline_airplanemode_active_24" />
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_second"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/listView"
-        />
+        android:layout_marginBottom="5dp" />
 
-<Spinner
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/radioGroupMaritalStatus"
-    android:layout_centerHorizontal="true"
-    android:entries="@array/student_list"
-    android:id="@+id/student_list"
-    />
+    <Spinner
+        android:id="@+id/student_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroupMaritalStatus"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/student_list" />
 
     <!--Floating button from Material Design-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_add"
         android:backgroundTint="@color/purple_200"
+        android:src="@drawable/ic_add"
         app:backgroundTint="@color/white"
-        app:rippleColor="#fff"
-        android:id="@+id/fab"
-        />
-<!--    Snack Bar Button-->
+        app:rippleColor="#fff" />
+    <!--    Snack Bar Button-->
     <Button
+        android:id="@+id/show_snack_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="show snackbar"
         android:layout_below="@+id/student_list"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:id="@+id/show_snack_bar"
-        />
+        android:text="show snackbar" />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/Card_View"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/editTextName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#b28fb5"
+        app:cardCornerRadius="5dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Card"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_launcher_background"
+
+                />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

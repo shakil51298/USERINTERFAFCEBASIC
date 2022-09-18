@@ -3,6 +3,7 @@ package com.shakilkhan.userinterfafcebasic;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.Menu;
@@ -23,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton fab;
     private RelativeLayout Context_View;
     private Button show_snack_bar;
+    private MaterialCardView cardView;
 
 
     @Override
@@ -65,13 +68,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //        start code here.........
+
+
+        cardView = findViewById(R.id.Card_View);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = "card clicked";
+                showSnack_bar(text);
+            }
+        });
+
         show_snack_bar = findViewById(R.id.show_snack_bar);
         Context_View = findViewById(R.id.Context_View);
 
         show_snack_bar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showSnack_bar();
+                String txt = "Hello Snack Bar";
+                showSnack_bar(txt);
             }
         });
 
@@ -206,14 +221,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // show sncakbar method;
-    private void showSnack_bar() {
-        Snackbar.make(Context_View, "hello snackbar", Snackbar.LENGTH_SHORT)
+    private void showSnack_bar(String txt) {
+        Snackbar.make(Context_View, txt, Snackbar.LENGTH_SHORT)
                 .setAction("Action", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(MainActivity.this, "Action clicked!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Action Clicked!!", Toast.LENGTH_SHORT).show();
                     }
                 })
+                .setTextColor(Color.YELLOW)
+                .setActionTextColor(Color.GREEN)
                 .show();
     }
 
