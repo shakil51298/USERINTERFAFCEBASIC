@@ -18,9 +18,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressBar prgeressBar;
     private ListView citiesList;
     private Spinner studentSpinner;
+    private FloatingActionButton fab;
+    private RelativeLayout Context_View;
+    private Button show_snack_bar;
 
 
     @Override
@@ -58,6 +65,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //        start code here.........
+        show_snack_bar = findViewById(R.id.show_snack_bar);
+        Context_View = findViewById(R.id.Context_View);
+
+        show_snack_bar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSnack_bar();
+            }
+        });
+
+
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Snackbar.make(Context_View, "hello snackbar", Snackbar.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Floating button clicked by you!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         studentSpinner = findViewById(R.id.student_list);
         ArrayList<String> students = new ArrayList<>();
         students.add("Shakil Khan");
@@ -66,9 +93,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         students.add("Ziad Hossain");
 
         ArrayAdapter<String> st_adapter = new ArrayAdapter<String>(
-          this,
-          android.R.layout.simple_spinner_dropdown_item,
-          students
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                students
         );
 
         studentSpinner.setAdapter(st_adapter);
@@ -76,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         studentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, studentSpinner.getSelectedItem().toString() +" Selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, studentSpinner.getSelectedItem().toString() + " Selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -97,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cities.add("New York");
 
 
-        ArrayAdapter<String> citiesAdapter =new ArrayAdapter<String>(
+        ArrayAdapter<String> citiesAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
                 cities
@@ -108,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         citiesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this,cities.get(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, cities.get(i), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -178,17 +205,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-//    menu items
+    // show sncakbar method;
+    private void showSnack_bar() {
+        Snackbar.make(Context_View, "hello snackbar", Snackbar.LENGTH_SHORT)
+                .setAction("Action", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(MainActivity.this, "Action clicked!!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .show();
+    }
+
+    ;
+
+    //    menu items
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
-    };
+    }
+
+    ;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.settingIcon:
                 Toast.makeText(this, "its a setting menu", Toast.LENGTH_SHORT).show();
                 return true;
