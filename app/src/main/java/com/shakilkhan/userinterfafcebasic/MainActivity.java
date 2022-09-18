@@ -5,19 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CheckBox checkBoxHarry, checkBoxJocker, checkBoxTheMatrix;
     private RadioGroup radioGroupMaritalStatus;
     private ProgressBar prgeressBar;
+    private ListView citiesList;
 
 
     @Override
@@ -46,6 +51,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //        start code here.........
+
+        citiesList = findViewById(R.id.listView);
+
+        ArrayList<String> cities = new ArrayList<>();
+        cities.add("Faridpur");
+        cities.add("Moskow");
+        cities.add("Shanhai");
+        cities.add("Dhaka");
+        cities.add("Beijing");
+        cities.add("New York");
+
+
+        ArrayAdapter<String> citiesAdapter =new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                cities
+        );
+
+        citiesList.setAdapter(citiesAdapter);
 
         checkBoxHarry = findViewById(R.id.checkboxHarryPoter);
         checkBoxJocker = findViewById(R.id.checkboxJocker);
