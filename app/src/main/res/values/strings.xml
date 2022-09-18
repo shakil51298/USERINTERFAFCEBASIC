@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">USERINTERFAFCEBASIC</string>
+    <string-array name="student_list">
+        <item>Shakil Khan</item>
+        <item>Khalid Hossain </item>
+        <item>Rabbi Hossain</item>
+        <item>Tanvir</item>
+    </string-array>
 </resources>

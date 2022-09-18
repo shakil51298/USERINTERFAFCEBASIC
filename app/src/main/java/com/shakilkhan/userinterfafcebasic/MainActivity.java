@@ -1,9 +1,13 @@
 package com.shakilkhan.userinterfafcebasic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -54,25 +58,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //        start code here.........
+        studentSpinner = findViewById(R.id.student_list);
+        ArrayList<String> students = new ArrayList<>();
+        students.add("Shakil Khan");
+        students.add("Rabbi Hossain");
+        students.add("Rakibul Hasan");
+        students.add("Ziad Hossain");
 
-        studentSpinner = findViewById(R.id.studentSpinner);
-        ArrayList<String> student = new ArrayList<>();
-        student.add("shakil khan");
-        student.add("Khalid Hossain");
-        student.add("Tanvir Hossain");
-        student.add("Siam Khan");
-
-        ArrayAdapter<String> studentAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_spinner_dropdown_item,
-                student
+        ArrayAdapter<String> st_adapter = new ArrayAdapter<String>(
+          this,
+          android.R.layout.simple_spinner_dropdown_item,
+          students
         );
-        studentSpinner.setAdapter(studentAdapter);
+
+        studentSpinner.setAdapter(st_adapter);
 
         studentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, student.get(i) + " selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, studentSpinner.getSelectedItem().toString() +" Selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -80,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
 
         citiesList = findViewById(R.id.listView);
 
@@ -173,5 +178,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+//    menu items
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    };
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.settingIcon:
+                Toast.makeText(this, "its a setting menu", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.alermIcon:
+                Toast.makeText(this, "alarm selectted", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 }
