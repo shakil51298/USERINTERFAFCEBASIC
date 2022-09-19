@@ -2,6 +2,7 @@ package com.shakilkhan.userinterfafcebasic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout Context_View;
     private Button show_snack_bar;
     private MaterialCardView cardView;
+    private RecyclerView recyClerView ;
 
 
     @Override
@@ -69,6 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         //        start code here.........
 
+//        recyClerView = findViewById(R.id.recyClerView);
+//        ArrayList<String>
 
         cardView = findViewById(R.id.Card_View);
         cardView.setOnClickListener(new View.OnClickListener() {
